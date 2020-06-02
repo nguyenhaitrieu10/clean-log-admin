@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  admin-dashboard-cleanup:
+    image: admin-dashboard-cleanup
+    environment:
+      - RETENTION_DAYS=14
+      - GO111MODULE=on
+    command: "go run clean-log.go"
+    volumes:
+      - /data/admin.db:/data/admin.db
